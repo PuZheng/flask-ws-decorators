@@ -4,7 +4,6 @@ from distutils.core import setup
 from setuptools import find_packages
 from setuptools.command.test import test as TestCommand
 import sys
-import re
 
 NAME = u"flask-ws-decorators"
 PACKAGE = u"flask_ws_decorators"
@@ -56,4 +55,3 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ]
 )
-

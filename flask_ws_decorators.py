@@ -64,15 +64,14 @@ def wait_for(seconds):
 
         def _f(*args, **kwargs):
             ret = f(*args, **kwargs)
-            time.sleep(seconds)
+            if current_app.config.get('WS_DECORATORS_ENABLED'):
+                time.sleep(seconds)
             return ret
 
         _f.__name__ = f.__name__
 
-        return _f if current_app.config.get('WS_DECORATORS_ENABLED') else f
+        return _f
     return _decorator
-
-
 
 def fake_error(arg):
     '''
