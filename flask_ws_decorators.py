@@ -68,7 +68,8 @@ def wait_for(seconds):
             return ret
 
         _f.__name__ = f.__name__
-        return _f
+        
+        return _f if current_app.config.get('WS_DECORATOR_ENABLED') else f
     return _decorator
 
 
