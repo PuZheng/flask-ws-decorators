@@ -14,7 +14,7 @@ def dump_request(*args):
     def decorator(f, methods=None):
 
         def _f(*args, **kwargs):
-            if current_app.config.get('DEBUG') and \
+            if current_app.config.get('WS_DECORATORS_ENABLED') and \
                     (methods is None or request.method in methods):
                 print sep + ' REQUEST PAYLOAD ' + sep
                 if request.form:
