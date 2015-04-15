@@ -73,6 +73,7 @@ def wait_for(seconds):
         return _f
     return _decorator
 
+
 def fake_error(arg):
     '''
     :param arg: the decorated function, or an error message. for example:
