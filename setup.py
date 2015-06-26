@@ -11,7 +11,7 @@ DESCRIPTION = ""
 AUTHOR = "xiechao"
 AUTHOR_EMAIL = "xiechao06@gmail.com"
 URL = "https://github.com/PuZheng/flask-ws-decorators"
-DOC = __import__(PACKAGE).__doc__
+DOC = "decorators for web services"
 VERSION = '0.1'
 LICENSE = 'MIT'
 
