@@ -5,6 +5,7 @@ import types
 import time
 from functools import partial, wraps
 from flask import request, current_app, jsonify, after_this_request
+from flask.ext.login import login_required as __login_required__
 from cStringIO import StringIO as IO
 import gzip
 
@@ -149,3 +150,20 @@ def gzipped(f):
         return f(*args, **kwargs)
 
     return view_func
+
+
+def login_required(*args):
+
+    if isinstance(args[0], types.FunctionType):
+        return __login_required__(args[0])
+
+    def decorator(func):
+        def _f(*args, **kwargs):
+            if request.method in args:
+                return __login_required__(func)(*args, **kwargs)
+            else:
+                return func(*args, **kwargs)
+        _f.__name__ = func.__name__
+        return _f
+
+    return decorator
